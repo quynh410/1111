@@ -1,0 +1,28 @@
+.page {
+  display: flex;
+  gap: 10px;
+  button {
+    background-color: white;    // Màu nền mặc định
+    color: #007bff;             // Màu chữ mặc định
+    border: 1px solid #007bff;  // Viền mặc định
+    border-radius: 4px;         // Bo góc viền
+    padding: 5px 10px;          // Khoảng cách giữa nội dung và viền
+    margin: 0 5px;              // Khoảng cách giữa các nút
+    cursor: pointer;            // Con trỏ chuột khi hover
+    transition: background-color 0.3s, color 0.3s; // Hiệu ứng chuyển màu
+
+    &.active {
+      background-color: #007bff; // Màu nền khi active
+      color: white;              // Màu chữ khi active
+    }
+
+    &:hover:not(.active) {
+      background-color: #e9ecef; // Màu nền khi hover (không áp dụng cho nút active)
+    }
+
+    &:disabled {
+      cursor: not-allowed;       // Con trỏ chuột khi nút bị vô hiệu hóa
+      opacity: 0.6;              // Độ mờ khi nút bị vô hiệu hóa
+    }
+  }
+}
