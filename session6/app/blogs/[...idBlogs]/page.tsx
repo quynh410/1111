@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
 interface Params {
   blogsData: number;
@@ -44,6 +44,9 @@ const blogs = [
 ];
 export default function page(props: Props) {
   const pathName = usePathname();
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search')
+  
   const { params } = props;
   const blogsFill = blogs.filter((item) => {
     return item.idBlogs == params.idBlogs;
@@ -82,6 +85,7 @@ export default function page(props: Props) {
           <p>
             <img src={item.image} alt={item.title} width={200} height={200} />
           </p>
+          
         </div>
       ))}
     </div>
